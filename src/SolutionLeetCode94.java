@@ -7,8 +7,7 @@ public class SolutionLeetCode94 {
 
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode(1,null, new TreeNode(2, new TreeNode(3), null));
-		TreeNode tree2 = new TreeNode(5,new TreeNode(1),new TreeNode(4,new TreeNode(3),new TreeNode(6)));
-		System.out.println(inorderTraversal(tree2));
+		System.out.println(inorderTraversal(tree));
 	}
 
 	public static List<Integer> inorderTraversal(TreeNode root) {

@@ -3,8 +3,7 @@ public class SolutionLeetCode92 {
 
 	public static void main(String[] args) {
 		ListNode node1 = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-		ListNode node2 = new ListNode(5);
-		System.out.println(reverseBetween(node2,1,1));
+		System.out.println(reverseBetween(node1,1,1));
 	}
 
 	public static ListNode reverseBetween(ListNode head, int left, int right) {
