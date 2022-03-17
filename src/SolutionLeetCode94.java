@@ -7,7 +7,8 @@ public class SolutionLeetCode94 {
 
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode(1,null, new TreeNode(2, new TreeNode(3), null));
-		System.out.println(inorderTraversalIerative(tree));
+		TreeNode tree2 = new TreeNode(5,new TreeNode(1),new TreeNode(4,new TreeNode(3),new TreeNode(6)));
+		System.out.println(inorderTraversal(tree2));
 	}
 
 	public static List<Integer> inorderTraversal(TreeNode root) {
@@ -17,7 +18,7 @@ public class SolutionLeetCode94 {
 		return depthFirstSearch(root, new ArrayList<Integer>());
     }
 	
-	public static List<Integer> inorderTraversalIerative(TreeNode root) {
+	public static List<Integer> inorderTraversalIterative(TreeNode root) {
 		//  In order sequence of values
 		List<Integer> inOrderValues = new ArrayList<>();
 		// Avoiding null pointer exception
@@ -25,28 +26,28 @@ public class SolutionLeetCode94 {
 			return inOrderValues;
 		}
 		// Stack of nodes that were still not added to the list of values(i.e. we have not finished their visit)
-		Stack<TreeNode> nodesToVisit = new Stack<TreeNode>();
+		Stack<TreeNode> toBacktrack = new Stack<TreeNode>();
 		// List of nodes that have already been added to the list of values(i.e. we have finished their visit)
 		HashMap<TreeNode,Boolean> visitedNodes = new HashMap<>();
 		// Start with the root node
-		nodesToVisit.add(root);
+		toBacktrack.add(root);
 		visitedNodes.put(root,true);
 		TreeNode currentNode;
 		// We are done when the satck of nodes to visit is empty
-		while (!nodesToVisit.isEmpty()) {
+		while (!toBacktrack.isEmpty()) {
 			// Pick the node on the top of the Stack and go left as far as we can
-			currentNode = nodesToVisit.peek();
+			currentNode = toBacktrack.peek();
 			while (currentNode.left != null && visitedNodes.get(currentNode.left) == null) {
-				nodesToVisit.add(currentNode.left);
+				toBacktrack.add(currentNode.left);
 				visitedNodes.put(currentNode.left,true);
 				currentNode = currentNode.left;
 			}
 			// When we cannot go left anymore, we add the value of the current node and pop it from the stack
 			inOrderValues.add(currentNode.val);
-			nodesToVisit.pop();
+			toBacktrack.pop();
 			// Check if it is possible to go right
 			if (currentNode.right != null) {
-				nodesToVisit.add(currentNode.right);
+				toBacktrack.add(currentNode.right);
 				visitedNodes.put(currentNode.right,true);
 			}
 		}
