@@ -6,7 +6,6 @@ public class SolutionLeetCode104WithDFS {
 		System.out.println(maxDepth(root));
 	}
 
-
 	public static int maxDepth(TreeNode root) {
 		// Empty tree has 0 depth
 		if (root == null) {
