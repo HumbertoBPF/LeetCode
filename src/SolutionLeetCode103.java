@@ -8,7 +8,7 @@ public class SolutionLeetCode103 {
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(1,new TreeNode(2,new TreeNode(4),new TreeNode(5)),new TreeNode(3));
-		System.out.println(zigzagLevelOrder(new TreeNode(1)));
+		System.out.println(zigzagLevelOrder(root));
 	}
 	
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
