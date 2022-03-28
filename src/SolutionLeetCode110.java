@@ -1,5 +1,5 @@
 
-public class BalancedBinaryTree {
+public class SolutionLeetCode110 {
 
 	public static void main(String[] args) {
 		TreeNode tree = null;
